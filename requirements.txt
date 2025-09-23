@@ -1,0 +1,16 @@
+fastapi==0.117.1
+uvicorn[standard]==0.36.0
+pydantic==2.11.1
+pydantic-settings==2.10.1
+
+# PyPDF2 is deprecated and has recent DoS issues via its successor’s code path.
+# Migrate to pypdf >=6 to pick up the fix.
+pypdf==6.1.0
+
+requests==2.32.5
+
+# ReDoS issues in older python-multipart; >=0.0.18 includes fixes (latest is 0.0.20).
+python-multipart==0.0.20
+
+# Rate limiter — keep current stable
+pyrate-limiter==3.9.0

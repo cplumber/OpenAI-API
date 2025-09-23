@@ -1,0 +1,201 @@
+import time
+import threading
+import pytest
+from contextlib import contextmanager
+
+# --------------------------- Fake limiter factory -----------------------------
+
+def make_fake_limiter(mod, mode="ok", reset_in=1.4):
+    """
+    Fake Limiter compatible with gateway's usage:
+    - try_acquire(name, tokens=1) (returns True or raises BucketFullException)
+    - ratelimit(name, delay=True|False) context manager (yields or raises)
+    - when raising, exception carries .meta_info with reset_in seconds
+    """
+    def _bucket_full_exc(reset_in_val: float):
+        cls = mod.BucketFullException
+        exc = cls.__new__(cls)
+        Exception.__init__(exc, "bucket full")
+        setattr(exc, "meta_info", {
+            "reset_in": float(reset_in_val),
+            "rate": f"{mod.OPENAI_RPM_PER_KEY}/minute",
+        })
+        return exc
+
+    class FakeLimiter:
+        def __init__(self):
+            self.mode = mode
+            self.reset_in = float(reset_in)
+            self.last_key = None
+            self.calls = 0
+
+        def try_acquire(self, key, tokens=1):
+            self.last_key = key
+            self.calls += 1
+            if self.mode == "ok":
+                return True
+            raise _bucket_full_exc(self.reset_in)
+
+        @contextmanager
+        def ratelimit(self, key, delay=True):
+            """
+            Simulate pyrate-limiter behavior:
+            - delay=False -> raise immediately if bucket "full"
+            - delay=True  -> block (we'll just yield in tests) when under limits
+            """
+            self.last_key = key
+            self.calls += 1
+            if self.mode == "ok":
+                yield
+            else:
+                # In tests that expect fail-fast, gateway sets delay=False,
+                # so raising here is correct.
+                raise _bucket_full_exc(self.reset_in)
+
+    return FakeLimiter()
+
+# ------------------------------- Tests ----------------------------------------
+
+def test_calls_openai_api_under_limits(monkeypatch, reload_ai_gateway, inject_fake_openai_client):
+    mod = reload_ai_gateway(with_config=True, config_values={
+        "OPENAI_MAX_CONCURRENCY_PER_KEY": 0,
+        "OPENAI_RPM_PER_KEY": 123,
+        "OPENAI_RPM_FAIL_FAST": False,
+        "OPENAI_RPM_MAX_DELAY_MS": 1000,
+    })
+
+    fake = make_fake_limiter(mod, mode="ok")
+    monkeypatch.setattr(mod, "_limiter", fake, raising=True)
+
+    captured = {}
+    def fake_call(api_key, model, prompt_text, max_output_tokens, temperature_zero):
+        captured.update(locals())
+        return {"status": "ok", "model": model, "echo": prompt_text}
+    inject_fake_openai_client(fake_call)
+
+    out = mod.call_openai_rate_limited("k-123", "gpt-x", "hello", 42, True)
+    assert out["status"] == "ok"
+    assert captured["api_key"] == "k-123"
+    assert captured["model"] == "gpt-x"
+    assert captured["prompt_text"] == "hello"
+    assert captured["max_output_tokens"] == 42
+    assert captured["temperature_zero"] is True
+
+    assert fake.last_key == "k-123"
+    assert fake.calls >= 1
+
+
+def test_fail_fast_raises_429_with_retry_after(monkeypatch, reload_ai_gateway, inject_fake_openai_client):
+    mod = reload_ai_gateway(with_config=True, config_values={
+        "OPENAI_RPM_PER_KEY": 777,
+        "OPENAI_RPM_FAIL_FAST": True,
+        "OPENAI_MAX_CONCURRENCY_PER_KEY": 0,
+    })
+
+    fake = make_fake_limiter(mod, mode="bucketfull", reset_in=1.01)
+    monkeypatch.setattr(mod, "_limiter", fake, raising=True)
+
+    def never(*a, **k):
+        raise AssertionError("client should not be called on fail-fast")
+    inject_fake_openai_client(never)
+
+    with pytest.raises(mod.OpenAIRateLimitError) as ei:
+        mod.call_openai_rate_limited("k-rl", "gpt-x", "hi", None, False)
+
+    err = ei.value
+    assert err.status_code == 429
+    assert err.headers.get("Retry-After") == "2"   # ceil(1.01) -> "2"
+    assert "limit exceeded" in err.detail.lower()
+    assert "/minute" in err.detail
+    assert fake.last_key == "k-rl"
+    assert fake.calls >= 1
+
+
+def test_blocking_mode_does_not_raise(monkeypatch, reload_ai_gateway, inject_fake_openai_client):
+    mod = reload_ai_gateway(with_config=True, config_values={
+        "OPENAI_RPM_PER_KEY": 55,
+        "OPENAI_RPM_FAIL_FAST": False,
+        "OPENAI_MAX_CONCURRENCY_PER_KEY": 0,
+    })
+
+    fake = make_fake_limiter(mod, mode="ok")
+    monkeypatch.setattr(mod, "_limiter", fake, raising=True)
+
+    inject_fake_openai_client(lambda *a, **k: {"status": "ok"})
+    out = mod.call_openai_rate_limited("k", "m", "p", 10, True)
+    assert out["status"] == "ok"
+    assert fake.calls >= 1
+
+
+def test_concurrency_limits_block(monkeypatch, reload_ai_gateway, inject_fake_openai_client):
+    mod = reload_ai_gateway(with_config=True, config_values={
+        "OPENAI_MAX_CONCURRENCY_PER_KEY": 1,
+        "OPENAI_RPM_PER_KEY": 10_000,
+        "OPENAI_RPM_FAIL_FAST": False,
+    })
+
+    from contextlib import contextmanager
+
+    class _OKLimiter:
+        def __init__(self): self.calls = 0
+        def try_acquire(self, key, tokens=1):
+            self.calls += 1
+            return True
+        @contextmanager
+        def ratelimit(self, key, delay=True):
+            self.calls += 1
+            yield
+
+    ok = _OKLimiter()
+    monkeypatch.setattr(mod, "_limiter", ok, raising=True)
+
+    def slow_call(*a, **k):
+        time.sleep(0.35)
+        return {"status": "ok"}
+    inject_fake_openai_client(slow_call)
+
+    results = []
+    def worker():
+        results.append(mod.call_openai_rate_limited("same-key", "m", "p", None, True))
+
+    t0 = time.perf_counter()
+    t1 = threading.Thread(target=worker)
+    t2 = threading.Thread(target=worker)
+    t1.start(); t2.start()
+    t1.join(); t2.join()
+    elapsed = time.perf_counter() - t0
+
+    # With concurrency=1, calls must serialize: ~0.70s total (0.35s + 0.35s)
+    assert elapsed >= 0.65, f"Concurrency limiting didn't serialize calls, elapsed={elapsed:.3f}s"
+    assert len(results) == 2 and all(r["status"] == "ok" for r in results)
+    assert ok.calls >= 2
+
+
+def test_env_fallbacks_when_config_missing(monkeypatch, reload_ai_gateway):
+    env = {
+        "OPENAI_RPM_PER_KEY": "999",
+        "OPENAI_RPM_FAIL_FAST": "1",
+        "OPENAI_MAX_CONCURRENCY_PER_KEY": "7",
+        "OPENAI_REDIS_URL": "redis://x",
+    }
+    mod = reload_ai_gateway(with_config=False, env_overrides=env)
+
+    assert mod.OPENAI_RPM_PER_KEY == 999
+    assert mod.OPENAI_RPM_FAIL_FAST is True
+    assert mod.OPENAI_MAX_CONCURRENCY_PER_KEY == 7
+    assert mod.OPENAI_REDIS_URL == "redis://x"
+
+
+def test_retry_after_header_rounding(monkeypatch, reload_ai_gateway, inject_fake_openai_client):
+    mod = reload_ai_gateway(with_config=True, config_values={
+        "OPENAI_RPM_FAIL_FAST": True,
+        "OPENAI_MAX_CONCURRENCY_PER_KEY": 0,
+        "OPENAI_RPM_PER_KEY": 480,
+    })
+    fake = make_fake_limiter(mod, mode="bucketfull", reset_in=2.0)
+    monkeypatch.setattr(mod, "_limiter", fake, raising=True)
+
+    inject_fake_openai_client(lambda *a, **k: {"status": "ok"})
+    with pytest.raises(mod.OpenAIRateLimitError) as ei:
+        mod.call_openai_rate_limited("k", "m", "p", None, False)
+    assert ei.value.headers.get("Retry-After") == "2"

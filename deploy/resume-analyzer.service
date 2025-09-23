@@ -1,0 +1,33 @@
+# /etc/systemd/system/resume-analyzer.service
+[Unit]
+Description=Resume Analyzer FastAPI service
+After=network.target
+
+[Service]
+# Run as your deploy user
+User=dev
+WorkingDirectory=/home/dev/openai_api
+
+# Ensure venv exists / deps up-to-date before starting
+ExecStartPre=/usr/bin/chmod +x /home/dev/openai_api/setup-python-env.sh
+ExecStartPre=/bin/bash -lc '/home/dev/openai_api/setup-python-env.sh /usr/bin/python3.11'
+
+# Start uvicorn (single worker; Caddy proxies to this)
+ExecStart=/home/dev/openai_api/.venv/bin/uvicorn app.main:app \
+  --host 127.0.0.1 --port 8000 \
+  --proxy-headers --forwarded-allow-ips 127.0.0.1
+
+# Robustness
+Restart=always
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutStopSec=15
+Environment=PYTHONUNBUFFERED=1
+Environment=LOG_LEVEL=info
+
+# Use the journal for logs (view with journalctl -u resume-analyzer.service)
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
