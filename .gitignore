@@ -53,4 +53,3 @@ resume_analyzer.db*
 prl/
 deploy-access-key/
 *.ps1
-manual-tests/

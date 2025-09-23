@@ -1,0 +1,9 @@
+HTTP/2 200 
+alt-svc: h3=":9443"; ma=2592000
+content-type: application/json
+date: Tue, 23 Sep 2025 13:37:26 GMT
+server: uvicorn
+via: 1.1 Caddy
+content-length: 117
+
+{"status":"healthy","timestamp":"2025-09-23T13:37:27.407175Z","database":{"connected":true},"system":{"status":"ok"}}

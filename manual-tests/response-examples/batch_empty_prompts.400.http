@@ -1,0 +1,9 @@
+HTTP/2 400 
+alt-svc: h3=":9443"; ma=2592000
+content-type: application/json
+date: Tue, 23 Sep 2025 13:37:28 GMT
+server: uvicorn
+via: 1.1 Caddy
+content-length: 78
+
+{"detail":"Invalid prompts format: Expecting value: line 1 column 1 (char 0)"}

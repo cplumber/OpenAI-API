@@ -1,0 +1,9 @@
+HTTP/2 404 
+alt-svc: h3=":9443"; ma=2592000
+content-type: application/json
+date: Tue, 23 Sep 2025 13:37:38 GMT
+server: uvicorn
+via: 1.1 Caddy
+content-length: 44
+
+{"detail":"Job not-a-real-job-id not found"}
