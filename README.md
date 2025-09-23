@@ -68,8 +68,8 @@ Runtime settings are controlled via two layers:
 
 Examples of configurable settings:
 - `DATABASE_URL` – SQLite path (default `resume_analyzer.db`)
-- `OPENAI_RPM_PER_KEY` – Requests per minute limit per API key (default `480`)
-- `OPENAI_RPM_FAIL_FAST` – Fail fast on limit (`1`) or block until free (`0`)
-- `OPENAI_RPM_MAX_DELAY_MS` – Maximum blocking delay (default 3600000 ms = 1h)
+- `OPENAI_RPM_PER_KEY` – Requests per minute limit per API key (default `480`) **[Not implemented yet]**
+- `OPENAI_RPM_FAIL_FAST` – Fail fast on limit (`1`) or block until free (`0`) **[Not implemented yet]**
+- `OPENAI_RPM_MAX_DELAY_MS` – Maximum blocking delay (default 3600000 ms = 1h) **[Not implemented yet]**
 - `OPENAI_MAX_CONCURRENCY_PER_KEY` – Cap concurrent requests (default `20`)
-- `OPENAI_REDIS_URL` – Optional Redis URL for distributed rate limiting
+- `OPENAI_REDIS_URL` – Optional Redis URL for distributed rate limiting **[Not implemented yet]**
