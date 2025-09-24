@@ -14,7 +14,7 @@ from app.core.pdf_processor import extract_pdf_text
 from app.core.openai_client import call_openai_api, extract_text_from_response
 from app.core.token_calculator import approx_tokens_from_chars, calculate_max_output_tokens
 from app.core.json_processor import extract_first_json
-from app.utils.job_manager import update_job_status, create_job
+from app.utils.job_manager import update_job_status
 from app.utils.rate_limiter import check_and_increment_rate_limits, decrement_rate_limits
 from app.utils.debug_recorder import DebugRequestRecorder
 
@@ -127,8 +127,7 @@ class AIActionHandler:
         file_content: Optional[bytes],
         filename: Optional[str],
     ):
-        # Create job & rate-limit gate
-        create_job(job_id, request_data.user_id, request_data.openai_api_key)
+        # Rate-limit gate (job is created by the route); set processing status
         update_job_status(job_id, "processing", 10)
 
         ok, reason = check_and_increment_rate_limits(request_data.user_id, request_data.openai_api_key)
