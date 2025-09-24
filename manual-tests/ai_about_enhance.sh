@@ -4,7 +4,7 @@
 API_BASE="http://127.0.0.1:8000"
 USER_ID="test_user_123"
 OPENAI_API_KEY=$OPENAI_API_KEY   # must be exported in your shell
-MODEL="gpt-5-mini"
+MODEL="gpt-4.1-mini"
 API_KEY_HEADER="${API_KEY_HEADER:-X-API-Key: ${X_API_KEY_VALUE}}"
 
 PROMPT_FILE="../focused-prompts/about.description.txt"
