@@ -1,44 +1,50 @@
 {
-  "job_id": "909af376-221c-4680-96d0-9b9932156a59",
+  "job_id": "32abc5b3-2f35-4443-ae93-70ab6c2025cb",
   "status": "completed",
   "result": {
     "about": {
-      "value": "",
+      "value": "A highly motivated, hardworking, bright and responsible Software Architect with undisguised interest in the tech industry. Deadline orientated and stress resistant - it's about me. I’m looking for projects with interesting technologies stack, progressive in decisions and of course with a friendly atmosphere.",
       "m": 1,
       "suggestions": [
         {
-          "value": "Software architect and senior C/C++ engineer since Aug 2017. C++ (11–17), Linux, CMake, Docker; designed integration, IVI and system architectures for automotive clients including Daimler, Volkswagen, Skoda and Ceer Motors.",
-          "confidence": 0.6,
+          "value": "Software architect (since 05/2024). C++17, Linux, Git, CMake; designed software architectures for car projections, CarPlay integration frameworks and a Bluetooth device manager for automotive customers including Ceer Motors and DXC.",
+          "confidence": 0.85,
           "evidence": [
             {
               "span": "MAY 2024 – PRESENT\nSOFTWARE ARCHITECT, LUXOFT"
             },
             {
-              "span": "AUGUST 2017 – AUGUST 2018\nJUNIOR C/C++ DEVELOPER, LUXOFT"
-            },
-            {
               "span": "Hard Skills : C++ 17, python, Java, Swift, Bluetooth, git, Linux, CMake, Android, Soong, Docker, Multithreading, STL, plantuml, ASPICE"
             },
             {
-              "span": "Customer: Daimler AG"
+              "span": "Achievements:\n• Designed SW Architecture for Car Projections Integration Framework\n• Designed SW Architecture for Bluetooth Device Manager\nCustomer: Ceer Motors"
+            },
+            {
+              "span": "NOVEMBER 2022 – MAY 2024\nSOFTWARE ARCHITECT, LUXOFT\nAchievements:\n• Designed SW Architecture for CarPlay 2.0 Integration Framework\nCustomer: DXC"
             }
           ]
         },
         {
-          "value": "Systems architect specializing in automotive IVI and projection integration. C++17, Android, Bluetooth, ASPICE; responsible for system and detailed design and SWE.2/SWE.3 implementation for CarPlay and car projection frameworks.",
-          "confidence": 0.55,
+          "value": "Software architect/engineer with roles since 08/2017. C/C++ (11–17), Yocto, Docker, multithreading; designed IVI and HMI system architectures, CI test and logging frameworks for customers such as Daimler, Volkswagen and Skoda.",
+          "confidence": 0.8,
           "evidence": [
             {
-              "span": "NOVEMBER 2022 – MAY 2024\nSOFTWARE ARCHITECT, LUXOFT"
+              "span": "AUGUST 2017 – AUGUST 2018\nJUNIOR C/C++ DEVELOPER, LUXOFT"
             },
             {
-              "span": "• Designed SW Architecture for CarPlay 2.0 Integration Framework"
+              "span": "Hard Skills : C++ 14 -17, git, Linux, CMake, Yocto, Docker, SQLite, gRPC, Thrift, Boost.Asio, STL, plantuml, ASPICE"
             },
             {
-              "span": "MAY 2024 – PRESENT\nSOFTWARE ARCHITECT, LUXOFT\nHard Skills : C++ 17, python, Java, Swift, Bluetooth, git, Linux, CMake, Android, Soong, Docker, Multithreading, STL, plantuml, ASPICE"
+              "span": "Achievements:\n• Designed SW Architecture for IVI Logging Framework"
             },
             {
-              "span": "Responsibilities: System design creation, Detailed design creation, SW development (features, debugging), Level 1 ASPICE: SWE.2 and SWE.3 implementation"
+              "span": "AUGUST 2018 – AUGUST 2019\nC/C++ DEVELOPER, LUXOFT\nAchievements:\n• Designed SW Architecture for HMI analog/digital stream controller\nCustomer: Skoda Auto a.s."
+            },
+            {
+              "span": "AUGUST 2021 – NOVEMBER 2022\nSOFTWARE ARCHITECT, LUXOFT\nCustomer: Daimler AG"
+            },
+            {
+              "span": "AUGUST 2019 – JANUARY 2020\nC/C++ DEVELOPER & FUNCTION OWNER, LUXOFT\nCustomer: Volkswagen AG"
             }
           ]
         }
@@ -48,28 +54,37 @@
           "span": "MAY 2024 – PRESENT\nSOFTWARE ARCHITECT, LUXOFT"
         },
         {
-          "span": "AUGUST 2017 – AUGUST 2018\nJUNIOR C/C++ DEVELOPER, LUXOFT"
-        },
-        {
           "span": "Hard Skills : C++ 17, python, Java, Swift, Bluetooth, git, Linux, CMake, Android, Soong, Docker, Multithreading, STL, plantuml, ASPICE"
         },
         {
-          "span": "• Designed SW Architecture for CarPlay 2.0 Integration Framework"
+          "span": "Achievements:\n• Designed SW Architecture for Car Projections Integration Framework\n• Designed SW Architecture for Bluetooth Device Manager\nCustomer: Ceer Motors"
         },
         {
-          "span": "Customer: Daimler AG"
+          "span": "NOVEMBER 2022 – MAY 2024\nSOFTWARE ARCHITECT, LUXOFT\nAchievements:\n• Designed SW Architecture for CarPlay 2.0 Integration Framework\nCustomer: DXC"
         },
         {
-          "span": "Customer: Volkswagen AG"
+          "span": "AUGUST 2017 – AUGUST 2018\nJUNIOR C/C++ DEVELOPER, LUXOFT"
         },
         {
-          "span": "Customer: Ceer Motors"
+          "span": "Hard Skills : C++ 14 -17, git, Linux, CMake, Yocto, Docker, SQLite, gRPC, Thrift, Boost.Asio, STL, plantuml, ASPICE"
+        },
+        {
+          "span": "Achievements:\n• Designed SW Architecture for IVI Logging Framework"
+        },
+        {
+          "span": "AUGUST 2018 – AUGUST 2019\nC/C++ DEVELOPER, LUXOFT\nAchievements:\n• Designed SW Architecture for HMI analog/digital stream controller\nCustomer: Skoda Auto a.s."
+        },
+        {
+          "span": "AUGUST 2021 – NOVEMBER 2022\nSOFTWARE ARCHITECT, LUXOFT\nCustomer: Daimler AG"
+        },
+        {
+          "span": "AUGUST 2019 – JANUARY 2020\nC/C++ DEVELOPER & FUNCTION OWNER, LUXOFT\nCustomer: Volkswagen AG"
         }
       ],
-      "confidence": 0.55
+      "confidence": 0.85
     }
   },
   "error_message": null,
-  "created_at": "2025-09-23 17:38:17",
-  "completed_at": "2025-09-23 17:39:04"
+  "created_at": "2025-09-24 11:37:35",
+  "completed_at": "2025-09-24 11:38:32"
 }

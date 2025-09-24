@@ -101,6 +101,7 @@ class AIActionHandler:
             resume_json_text = request_data.resume_json or ""
             # Combine for token budgeting
             combined_len = len(pdf_text) + len(resume_json_text)
+
             input_tokens = approx_tokens_from_chars(combined_len)
 
             update_job_status(job_id, "processing", 40)
@@ -133,7 +134,7 @@ class AIActionHandler:
                 model=request_data.model,
                 prompt=filled_prompt,
                 max_output_tokens=max_output_tokens,
-                force_temp0=request_data.temperature_zero,
+                temperature_zero=request_data.temperature_zero,
             )
 
             if response.get("status") != "completed":
