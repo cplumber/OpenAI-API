@@ -17,6 +17,57 @@ from app.core.json_processor import extract_first_json
 from app.utils.job_manager import update_job_status, create_job
 from app.utils.rate_limiter import check_and_increment_rate_limits, decrement_rate_limits
 from app.utils.debug_recorder import DebugRequestRecorder
+
+
+def _save_action_artifacts(
+    rec: "DebugRequestRecorder",
+    *,
+    input_filename: str | None,
+    input_bytes: bytes | None,
+    pdf_text: str | None,
+    resume_json_raw: str | None,
+    final_prompt: str | None,
+    combined_len: int | None,
+    pdf_text_len: int | None,
+    resume_json_len: int | None,
+) -> None:
+    """
+    Save AIAction artifacts under the handler's PRL folder.
+    No-ops if PRL is disabled.
+    """
+    try:
+        # PDF bytes
+        if input_bytes:
+            name = f"input__{input_filename}" if input_filename else "input.pdf"
+            rec.save_bytes(name, input_bytes)
+        # PDF text
+        if pdf_text:
+            rec.save_text("pdf_text.txt", pdf_text)
+        # User resume JSON (raw or pretty json if valid)
+        if resume_json_raw is not None and resume_json_raw != "":
+            try:
+                parsed = json.loads(resume_json_raw)
+                rec.save_text("user_resume.json", json.dumps(parsed, ensure_ascii=False, indent=2))
+            except Exception:
+                rec.save_text("user_resume.json", resume_json_raw)
+        # Final prompt
+        if final_prompt:
+            rec.save_text("prompt_action.txt", final_prompt)
+        # Quick metrics
+        lines = []
+        if combined_len is not None:
+            lines.append(f"combined_len={combined_len}")
+        if pdf_text_len is not None:
+            lines.append(f"pdf_text_len={pdf_text_len}")
+        if resume_json_len is not None:
+            lines.append(f"resume_json_len={resume_json_len}")
+        if lines:
+            rec.save_text("action_token_inputs.txt", "\n".join(lines))
+    except Exception as _e:
+        # best-effort only; never break main path on debug write errors
+        pass
+
+
 from app.utils.prompt_utils import build_prompt
 
 # Allowed (tab, action) combinations mirrored from UI (Availability has no defaults)
@@ -129,6 +180,28 @@ class AIActionHandler:
                 filled_prompt = prompt_text.replace("{{USER_RESUME_JSON}}", resume_json_text)
 
             # Call OpenAI
+            
+            # PRL: save action artifacts right before model call
+            try:
+                combined_len = (len(pdf_text or "") + len(resume_json_text or ""))
+                pdf_text_len = len(pdf_text or "")
+                resume_json_len = len(resume_json_text or "")
+            except Exception:
+                combined_len = pdf_text_len = resume_json_len = None
+
+            if rec.enabled and rec.dir:
+                _save_action_artifacts(
+                    rec,
+                    input_filename=filename,
+                    input_bytes=file_content,
+                    pdf_text=pdf_text,
+                    resume_json_raw=resume_json_text,
+                    final_prompt=filled_prompt,
+                    combined_len=combined_len,
+                    pdf_text_len=pdf_text_len,
+                    resume_json_len=resume_json_len,
+                )
+
             response = call_openai_api(
                 api_key=request_data.openai_api_key,
                 model=request_data.model,

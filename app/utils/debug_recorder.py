@@ -117,3 +117,23 @@ class DebugRequestRecorder:
             return
         tb = "".join(traceback.format_exception(type(exc), exc, exc.__traceback__))
         (self.dir / "exception.txt").write_text(tb, encoding="utf-8")
+
+
+    def save_text(self, name: str, text: str) -> Path | None:
+        """Write UTF-8 text file into this request folder (unique filename)."""
+        if not (self.enabled and self.dir):
+            return None
+        safe = _safe(name or "artifact.txt")
+        dest = _ensure_unique_path(self.dir / safe)
+        dest.write_text(text if isinstance(text, str) else str(text), encoding="utf-8")
+        return dest
+
+    def save_bytes(self, name: str, data: bytes) -> Path | None:
+        """Write raw bytes file into this request folder (unique filename)."""
+        if not (self.enabled and self.dir) or data is None:
+            return None
+        safe = _safe(name or "artifact.bin")
+        dest = _ensure_unique_path(self.dir / safe)
+        with open(dest, "wb") as f:
+            f.write(data)
+        return dest
