@@ -1,0 +1,75 @@
+{
+  "job_id": "909af376-221c-4680-96d0-9b9932156a59",
+  "status": "completed",
+  "result": {
+    "about": {
+      "value": "",
+      "m": 1,
+      "suggestions": [
+        {
+          "value": "Software architect and senior C/C++ engineer since Aug 2017. C++ (11–17), Linux, CMake, Docker; designed integration, IVI and system architectures for automotive clients including Daimler, Volkswagen, Skoda and Ceer Motors.",
+          "confidence": 0.6,
+          "evidence": [
+            {
+              "span": "MAY 2024 – PRESENT\nSOFTWARE ARCHITECT, LUXOFT"
+            },
+            {
+              "span": "AUGUST 2017 – AUGUST 2018\nJUNIOR C/C++ DEVELOPER, LUXOFT"
+            },
+            {
+              "span": "Hard Skills : C++ 17, python, Java, Swift, Bluetooth, git, Linux, CMake, Android, Soong, Docker, Multithreading, STL, plantuml, ASPICE"
+            },
+            {
+              "span": "Customer: Daimler AG"
+            }
+          ]
+        },
+        {
+          "value": "Systems architect specializing in automotive IVI and projection integration. C++17, Android, Bluetooth, ASPICE; responsible for system and detailed design and SWE.2/SWE.3 implementation for CarPlay and car projection frameworks.",
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "span": "NOVEMBER 2022 – MAY 2024\nSOFTWARE ARCHITECT, LUXOFT"
+            },
+            {
+              "span": "• Designed SW Architecture for CarPlay 2.0 Integration Framework"
+            },
+            {
+              "span": "MAY 2024 – PRESENT\nSOFTWARE ARCHITECT, LUXOFT\nHard Skills : C++ 17, python, Java, Swift, Bluetooth, git, Linux, CMake, Android, Soong, Docker, Multithreading, STL, plantuml, ASPICE"
+            },
+            {
+              "span": "Responsibilities: System design creation, Detailed design creation, SW development (features, debugging), Level 1 ASPICE: SWE.2 and SWE.3 implementation"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "span": "MAY 2024 – PRESENT\nSOFTWARE ARCHITECT, LUXOFT"
+        },
+        {
+          "span": "AUGUST 2017 – AUGUST 2018\nJUNIOR C/C++ DEVELOPER, LUXOFT"
+        },
+        {
+          "span": "Hard Skills : C++ 17, python, Java, Swift, Bluetooth, git, Linux, CMake, Android, Soong, Docker, Multithreading, STL, plantuml, ASPICE"
+        },
+        {
+          "span": "• Designed SW Architecture for CarPlay 2.0 Integration Framework"
+        },
+        {
+          "span": "Customer: Daimler AG"
+        },
+        {
+          "span": "Customer: Volkswagen AG"
+        },
+        {
+          "span": "Customer: Ceer Motors"
+        }
+      ],
+      "confidence": 0.55
+    }
+  },
+  "error_message": null,
+  "created_at": "2025-09-23 17:38:17",
+  "completed_at": "2025-09-23 17:39:04"
+}

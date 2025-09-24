@@ -31,3 +31,14 @@ class ClassificationRequest(BaseModel):
     model: str
     max_output_tokens: Optional[int] = None
     temperature_zero: bool = True
+
+class AIActionRequest(BaseModel):
+    user_id: str
+    openai_api_key: str
+    model: str
+    action_type: str   # e.g. "suggest" | "validate" | "enhance" | "shorten"
+    tab: str           # e.g. "skills" | "projects" | "education"
+    resume_json: str   # current resume JSON (required, raw string)
+    prompt: Optional[str] = None
+    max_output_tokens: Optional[int] = None
+    temperature_zero: bool = True

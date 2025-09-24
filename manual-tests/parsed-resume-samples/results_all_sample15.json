@@ -1,0 +1,915 @@
+{
+  "contact": {
+    "name": {
+      "value": "Karlos Álvarez",
+      "m": 0
+    },
+    "email": {
+      "value": "karlos.alvan@proton.me",
+      "m": 0
+    },
+    "phone": {
+      "value": "",
+      "m": 1,
+      "no_suggestion_reason": "no in-document hints",
+      "suggestions": []
+    },
+    "location": {
+      "value": "",
+      "m": 1,
+      "no_suggestion_reason": "no in-document hints",
+      "suggestions": []
+    },
+    "linkedin_link": {
+      "value": "",
+      "m": 1,
+      "no_suggestion_reason": "no in-document hints",
+      "suggestions": []
+    },
+    "portfolio_link": [],
+    "messaging": []
+  },
+  "soft_skills": [
+    {
+      "value": "Leadership",
+      "m": 0
+    },
+    {
+      "value": "Communication",
+      "m": 0
+    },
+    {
+      "value": "Teamwork",
+      "m": 0
+    },
+    {
+      "value": "Problem solving",
+      "m": 0
+    },
+    {
+      "value": "Project Engineering",
+      "m": 0
+    },
+    {
+      "value": "Customer Facing",
+      "m": 0
+    },
+    {
+      "value": "Agile Software Engineering",
+      "m": 0
+    },
+    {
+      "value": "Continuous Delivery",
+      "m": 0
+    },
+    {
+      "value": "Devops",
+      "m": 0
+    },
+    {
+      "value": "Test Driven Development",
+      "m": 0
+    },
+    {
+      "value": "Engineering Best practices",
+      "m": 0
+    },
+    {
+      "value": "Scrum",
+      "m": 0
+    },
+    {
+      "value": "Fault tolerance",
+      "m": 0
+    },
+    {
+      "value": "Software Quality",
+      "m": 0
+    },
+    {
+      "value": "System Integration",
+      "m": 0
+    },
+    {
+      "value": "Auditing Software Development Systems",
+      "m": 0
+    }
+  ],
+  "tech_skills": {
+    "top_skills": [
+      {
+        "value": "Python",
+        "m": 0,
+        "years_experience": {
+          "value": null,
+          "m": 1,
+          "no_suggestion_reason": "ambiguous evidence",
+          "suggestions": []
+        }
+      },
+      {
+        "value": "AWS",
+        "m": 0,
+        "years_experience": {
+          "value": null,
+          "m": 1,
+          "no_suggestion_reason": "ambiguous evidence",
+          "suggestions": []
+        }
+      },
+      {
+        "value": "Kubernetes",
+        "m": 0,
+        "years_experience": {
+          "value": null,
+          "m": 1,
+          "no_suggestion_reason": "ambiguous evidence",
+          "suggestions": []
+        }
+      },
+      {
+        "value": "Terraform",
+        "m": 0,
+        "years_experience": {
+          "value": null,
+          "m": 1,
+          "no_suggestion_reason": "ambiguous evidence",
+          "suggestions": []
+        }
+      },
+      {
+        "value": "Apache Beam",
+        "m": 0,
+        "years_experience": {
+          "value": null,
+          "m": 1,
+          "no_suggestion_reason": "ambiguous evidence",
+          "suggestions": []
+        }
+      }
+    ],
+    "additional_skills": [
+      {
+        "value": "Event Streaming",
+        "m": 0
+      },
+      {
+        "value": "Cloud Engineering",
+        "m": 0
+      },
+      {
+        "value": "Data Engineering",
+        "m": 0
+      },
+      {
+        "value": "Software Engineering",
+        "m": 0
+      },
+      {
+        "value": "SAAS",
+        "m": 0
+      },
+      {
+        "value": "Data Modelling",
+        "m": 0
+      },
+      {
+        "value": "Data Pipelines",
+        "m": 0
+      },
+      {
+        "value": "Process Optimization",
+        "m": 0
+      },
+      {
+        "value": "Graph Architecture",
+        "m": 0
+      },
+      {
+        "value": "System Redesign",
+        "m": 0
+      },
+      {
+        "value": "Production Systems",
+        "m": 0
+      },
+      {
+        "value": "Database First",
+        "m": 0
+      },
+      {
+        "value": "GCP",
+        "m": 0
+      },
+      {
+        "value": "Postgres",
+        "m": 0
+      },
+      {
+        "value": "Pubsub",
+        "m": 0
+      },
+      {
+        "value": "GCS",
+        "m": 0
+      },
+      {
+        "value": "Cloud Scheduling",
+        "m": 0
+      },
+      {
+        "value": "Advanced SQL",
+        "m": 0
+      },
+      {
+        "value": "Dataflow",
+        "m": 0
+      },
+      {
+        "value": "Oauth2",
+        "m": 0
+      },
+      {
+        "value": "Auth0",
+        "m": 0
+      },
+      {
+        "value": "Sentry",
+        "m": 0
+      },
+      {
+        "value": "Jira",
+        "m": 0
+      },
+      {
+        "value": "Pulumi",
+        "m": 0
+      },
+      {
+        "value": "AKS",
+        "m": 0
+      },
+      {
+        "value": "Flux",
+        "m": 0
+      },
+      {
+        "value": "Flux2",
+        "m": 0
+      },
+      {
+        "value": "Prometheus",
+        "m": 0
+      },
+      {
+        "value": "Elasticsearch",
+        "m": 0
+      },
+      {
+        "value": "Confluent Kafka",
+        "m": 0
+      },
+      {
+        "value": "Spark Streaming",
+        "m": 0
+      },
+      {
+        "value": "Presto",
+        "m": 0
+      },
+      {
+        "value": "Apache Hive",
+        "m": 0
+      },
+      {
+        "value": "Airflow",
+        "m": 0
+      },
+      {
+        "value": "S3",
+        "m": 0
+      },
+      {
+        "value": "Filebeat",
+        "m": 0
+      },
+      {
+        "value": "Logstash",
+        "m": 0
+      },
+      {
+        "value": "Kibana",
+        "m": 0
+      },
+      {
+        "value": "Metabase",
+        "m": 0
+      },
+      {
+        "value": "Docker",
+        "m": 0
+      },
+      {
+        "value": "Docker-compose",
+        "m": 0
+      },
+      {
+        "value": "Helm",
+        "m": 0
+      },
+      {
+        "value": "Pytorch",
+        "m": 0
+      },
+      {
+        "value": "Trains",
+        "m": 0
+      },
+      {
+        "value": "Golang",
+        "m": 0
+      },
+      {
+        "value": "Microservices",
+        "m": 0
+      },
+      {
+        "value": "Gitops",
+        "m": 0
+      },
+      {
+        "value": "Flux2",
+        "m": 0
+      },
+      {
+        "value": "Skaffold",
+        "m": 0
+      },
+      {
+        "value": "Gitlab pipelines",
+        "m": 0
+      },
+      {
+        "value": "Scala",
+        "m": 0
+      },
+      {
+        "value": "Datadog",
+        "m": 0
+      },
+      {
+        "value": "Grafana",
+        "m": 0
+      },
+      {
+        "value": "Hadoop",
+        "m": 0
+      },
+      {
+        "value": "MapReduce",
+        "m": 0
+      },
+      {
+        "value": "HDFS",
+        "m": 0
+      },
+      {
+        "value": "YARN",
+        "m": 0
+      },
+      {
+        "value": "Spark",
+        "m": 0
+      },
+      {
+        "value": "Elasticsearch",
+        "m": 0
+      },
+      {
+        "value": "Logstash",
+        "m": 0
+      },
+      {
+        "value": "EC2",
+        "m": 0
+      },
+      {
+        "value": "SQS",
+        "m": 0
+      },
+      {
+        "value": "SNS",
+        "m": 0
+      },
+      {
+        "value": "Glacier",
+        "m": 0
+      },
+      {
+        "value": "VPC",
+        "m": 0
+      },
+      {
+        "value": "IAM",
+        "m": 0
+      },
+      {
+        "value": "Redshift",
+        "m": 0
+      },
+      {
+        "value": "Mongodb",
+        "m": 0
+      },
+      {
+        "value": "Redis",
+        "m": 0
+      },
+      {
+        "value": "Jenkins",
+        "m": 0
+      },
+      {
+        "value": "Zeppelin",
+        "m": 0
+      },
+      {
+        "value": "Hue",
+        "m": 0
+      },
+      {
+        "value": "Scikit-learn",
+        "m": 0
+      },
+      {
+        "value": "SGD",
+        "m": 0
+      },
+      {
+        "value": "Classifiers",
+        "m": 0
+      },
+      {
+        "value": "Random Forest",
+        "m": 0
+      },
+      {
+        "value": "Multithreading",
+        "m": 0
+      },
+      {
+        "value": "Thread Safe Memory",
+        "m": 0
+      },
+      {
+        "value": "Celery",
+        "m": 0
+      },
+      {
+        "value": "Php",
+        "m": 0
+      },
+      {
+        "value": "Bash scripting",
+        "m": 0
+      },
+      {
+        "value": "React",
+        "m": 0
+      },
+      {
+        "value": "Redux",
+        "m": 0
+      },
+      {
+        "value": "Finagle",
+        "m": 0
+      },
+      {
+        "value": "Rest Services",
+        "m": 0
+      },
+      {
+        "value": "Web Applications",
+        "m": 0
+      },
+      {
+        "value": "Postgresql",
+        "m": 0
+      },
+      {
+        "value": "Janus Graph",
+        "m": 0
+      },
+      {
+        "value": "DynamoDB",
+        "m": 0
+      },
+      {
+        "value": "CloudFront",
+        "m": 0
+      },
+      {
+        "value": "Lambda",
+        "m": 0
+      },
+      {
+        "value": "ELB",
+        "m": 0
+      },
+      {
+        "value": "Rackspace",
+        "m": 0
+      },
+      {
+        "value": "C/C++",
+        "m": 0
+      },
+      {
+        "value": "C++ Std Libraries",
+        "m": 0
+      },
+      {
+        "value": "Svn",
+        "m": 0
+      }
+    ]
+  },
+  "about": {
+    "description": {
+      "value": "Software Engineer with experience in a wide range of IT businesses along many countries. Specialized in Data Engineering, Information and System Architecture, my key value is to provide meaningful clues for the wise design and elastic architectural process of high performance/critical software solutions.",
+      "m": 0
+    },
+    "languages": [
+      {
+        "language": {
+          "value": "English",
+          "m": 0
+        },
+        "level": {
+          "value": "C2",
+          "m": 0
+        }
+      },
+      {
+        "language": {
+          "value": "Italian",
+          "m": 0
+        },
+        "level": {
+          "value": "C2",
+          "m": 0
+        }
+      },
+      {
+        "language": {
+          "value": "Catalan",
+          "m": 0
+        },
+        "level": {
+          "value": "B1",
+          "m": 0
+        }
+      },
+      {
+        "language": {
+          "value": "French",
+          "m": 0
+        },
+        "level": {
+          "value": "B1",
+          "m": 0
+        }
+      },
+      {
+        "language": {
+          "value": "Spanish",
+          "m": 0
+        },
+        "level": {
+          "value": "NATIVE",
+          "m": 0
+        }
+      }
+    ]
+  },
+  "experience": [
+    {
+      "job_title": {
+        "value": "Data Engineer",
+        "m": 0
+      },
+      "company": {
+        "value": "Archipelo(b2b)",
+        "m": 0
+      },
+      "location": {
+        "value": "Palo Alto, United States",
+        "m": 0
+      },
+      "start_date": {
+        "value": "10/2023",
+        "m": 0
+      },
+      "end_date": {
+        "value": "12/2024",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "Archipelo collects SDLC data. My work as Data Engineer was to provide an alternative to a complex Streaming Graph where data products are constructued in real time to provide actionable data to several application users. The Streaming Graph is based on Dataflow, running Apache Beam as a Streaming system. We process different sources of information and combine them together to create new actionable data products necessary to a set of business use cases. I managed the slicing of this complex streaming graph into small sized, simpliﬁed `horizontals of processing` different data to different dimensions of the information collected and managed by the product. A key part of my work is to allow our database to be really fast on writes, as we had data consistency issues while using a Postgres Sink to write produced data products. This forced us to use every capability of the Postgres technology available to cope with our needs. Skills: Event Streaming, Cloud Engineering, Data Engineering, Software Engineering, SAAS, Data modelling, Data Pipelines, Process Optimization, Graph Architecture, System Redesign, Production Systems, Database First GCP Postgres Apache Beam Pubsub GCS Cloud Scheduling Advanced SQL High performance database oriented design Dataﬂow Oauth2 Auth0 Sentry Jira Terraform"
+      }
+    },
+    {
+      "job_title": {
+        "value": "Data Engineer / Technical Architect",
+        "m": 0
+      },
+      "company": {
+        "value": "Twist.eco(b2b)",
+        "m": 0
+      },
+      "location": {
+        "value": "London, United Kingdom",
+        "m": 0
+      },
+      "start_date": {
+        "value": "09/2022",
+        "m": 0
+      },
+      "end_date": {
+        "value": "09/2023",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "Technical Architecture, Cloud Engineering and Data Engineering for the Twist platform.KA From one side, my work is to focus on the data engineering processes to integrate variegate customer data into our propietary data model. We’ve created the whole system from scratch, it is versionable, multi-cloud datalake ecosystem where the major provider is GoogleCloud. Data transformations are run through the execution of workflows to carry out inter-dependent operations, provide consistent logging of actions and able of providing status updates at every step within the workflow. The orchestration runs complex sql queries (T), chained ETL/ELTs, daily imports, etc. into scalable units of processing, as the lowest cost per Gb solution available. The system is already hosting customers in production, is highly maintainable and allows the data science team to update the queries in production under certain I/O conﬁguration constraints. From the other, an important part of my work is to talk to our customers to design custom AdHoc solutions in order to integrate their data with our system. Along the process, we design the best solution according to the customer needs to ﬁt time and technological constraints into a particular case. From there, our customer is able of leveraging our data model with his own business data. Skills: Solutions Architecture, Data Engineering, Cloud Engineering, CI/CD, SAAS, Data Pipelines, Business Workflow, Fault tolerance Aws s3 Aws Athena Aws Postgress Aws Lamda Aws Iam Google Cloud BigQuery Workﬂows Cloud Functions Compute Https Load Balancing Rolling Updates Cloud Storage Iam Python Numpy Pandas Oauth2 FastApi Threading Asynchrohous Python Python-Google-Cloud Terraform Pulumi Freelancing / Various Kubernetes AKS Flux Flux2 Prometheus"
+      }
+    },
+    {
+      "job_title": {
+        "value": "Data Engineer",
+        "m": 0
+      },
+      "company": {
+        "value": "Namecheap Inc(b2b)",
+        "m": 0
+      },
+      "location": {
+        "value": "Phoenix, United States",
+        "m": 0
+      },
+      "start_date": {
+        "value": "09/2020",
+        "m": 0
+      },
+      "end_date": {
+        "value": "06/2022",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "Data architecture and engineering on top of a Cloud Native environment. Cloud Native systems make the data engineering solution design challenging, as resource consuming processes, which most computing processes are, must coexist with production grade services, therefore they must be optimized and well planned. The Solution stands as the main data ecosystem architecture, design of workflows and process deﬁnitions. Operating thorough a set of Kubernetes clusters where product and infrastructure management solutions are hosted. In order to enable new information flows, I was working on some components on top of K8s to monitor admin actions from 100K+ websites, basically to orchestrate data transformations. Later, we created the Cdn product, we started having more critical perfromance and the existing solution proven deﬁcient sizing for loads. We designed a new data and compute cloud where to place all data related workflows and processes. Among the tools we used there are Elasticsearch for short term access log storage, Confluent Kafka Streaming, transformations with Spark streaming, s3 object storage (in-house), several scheduler stacks, PrestoSQL for distributed processing among others. Provided design of our ﬁrst end-to-end Machine Learning learning workflows based on Pytorch framework and Trails server. Skills: Solutions Architecture, Event Streaming, Data Engineering, Cloud Engineering, Agile Software Engineering, Continuous Delivery, Devops, SAAS, Code Shipping, Machine Learning, Non-Linear Regression Presto Apache Hive Conﬂuent Kafka Airﬂow S3 Elasticsearch Filebeat Logstash Kibana Metabase Docker Kubernetes Prometheus Helm Pytorch Trains Python Golang Microservices Gitops Flux Flux2"
+      }
+    },
+    {
+      "job_title": {
+        "value": "Data / Software Engineer",
+        "m": 0
+      },
+      "company": {
+        "value": "Auvik Networks(b2b)",
+        "m": 0
+      },
+      "location": {
+        "value": "Barcelona, Spain",
+        "m": 0
+      },
+      "start_date": {
+        "value": "04/2019",
+        "m": 0
+      },
+      "end_date": {
+        "value": "04/2020",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "Providing Design and Engineering for a big Elasticsearch Datastore that will host more than 2000 indices. Also, the design of a dynamic system for optimal Elasticsearch maintenance. The project is for a Network Analysis company centered on solutions for Network service providers. Involved in a high performance syslog monitoring project, in a High Quality Software environment. The project is a microservice oriented architecture with Golang, Scala and Python as core technologies. I've designed and developed solutions for Golang microservices, worked with Apache Flink for message processing and created development environments based on Skaffold for fast Kubernetes deployment. My main achievement is to provide an architecture on Elasticsearch to store unforeseen amounts of data in a large scale cluster, while keeping Elasticsearch performance at an optimal level in every stage of the project evolution. Prepare an ecosystem for transparent Elasticsearch management in a production system, with seamless operations with no interruption for the ingestion and presentation pipelines while guiding the development to have robust insights of data, shaping the ﬁnal product and triggering the start of few projects inside the company. On the microservice architecture, I made the design of the microservice components directly interacting with the Elasticsearch cluster, both write and read services, and overlook their development from other colleagues. Skills: Event Streaming, Solutions Architecture, Data Engineering, Scrum, Software Engineering, Test Driven Development, Engineering Best practices, SAAS, Code quality Elasticsearch Kibana Apache Flink Docker Docker-compose Kafka Kubernetes Microservices Skaffold Helm Gitlab pipelines Golang Scala Python Datadog Grafana"
+      }
+    },
+    {
+      "job_title": {
+        "value": "Data Engineer",
+        "m": 0
+      },
+      "company": {
+        "value": "PeakAdx by Aedgency(full time)",
+        "m": 0
+      },
+      "location": {
+        "value": "Barcelona, Spain",
+        "m": 0
+      },
+      "start_date": {
+        "value": "06/2018",
+        "m": 0
+      },
+      "end_date": {
+        "value": "02/2019",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "Focused in the analysis of the company ingestion data pipeline and data engineering BI reporting processes. High load of advertiser and publisher trafﬁc using Pop, CPA, CPI business models, up to 2B of requests per day. Providing workflow solutions to reduce the pipeline processing time, leverage the reporting process to a stable delivery of trafﬁc activity, reduce infrastructure costs linked to mid-long term storage, reduce data processing costs and improve general software quality trough the improvement of data engineering team-internal processes. Some solutions applied: YARN clusters for self management of Spark processing pipelines, updating Jenkins pipeline with a distributed architecture sharing the master home among slaves, Isolation of a Logstash environment out from the core server farm (up to 2 billion requests/day) , improve the design, do the project engineering of a DSP system for the company, S3 management to optimize operations for the 3TB stored per day. Skills: Distributed processing, High Throughput Pipelines, Data Engineering, Data Architecture, Big Data, Software Engineering, Devops, Scrum Hadoop MapReduce HDFS YARN Spark Spark Streaming Elasticsearch Logstash EC2 SQS SNS S3 Glacier VPC IAM Redshift Mongodb Redis Jenkins Zeppelin Metabase Kibana Hue python"
+      }
+    },
+    {
+      "job_title": {
+        "value": "Software Engineer",
+        "m": 0
+      },
+      "company": {
+        "value": "Shoesize.me(full time)",
+        "m": 0
+      },
+      "location": {
+        "value": "Barcelona, Spain",
+        "m": 0
+      },
+      "start_date": {
+        "value": "01/2017",
+        "m": 0
+      },
+      "end_date": {
+        "value": "01/2018",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "Managing architecture, development and key aspects of the technological/social product scope, of a SAAS Customer Integration and Services platform which operates as a uniﬁed portal for Shoesize.me clients. This project aims to make customer products available online, allowing users to integrate company services, manage their own product conﬁgurations, allow access to third party users, etc. I've designed the web service API for this project, this API has been created using Finagle, a great Scala technology build from Twitter, great for asynchronous communications. I've designed the platform as a software product, the client architecture has been created using React/Redux pair which offers powerful system structure, states and innovative interface/display objects. It combines several databases as the product platform makes use of a huge database to provide data reports, which are part of the commercial product of the company. Skills: Full Stack Development, Solutions Architecture, Customer Facing, Software Engineering, Project Engineering, SAAS Product Engineering, System Integration Scala React Redux Finagle Rest Services Web Applications Mongodb Postgresql Janus Graph Redis AWS DynamoDB AWS EC2 AWS ELB AWS CloudFront AWS S3"
+      }
+    },
+    {
+      "job_title": {
+        "value": "R+D Engineer",
+        "m": 0
+      },
+      "company": {
+        "value": "BBVA Data Analytics(b2b)",
+        "m": 0
+      },
+      "location": {
+        "value": "Barcelona, Spain",
+        "m": 0
+      },
+      "start_date": {
+        "value": "08/2016",
+        "m": 0
+      },
+      "end_date": {
+        "value": "12/2016",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "Provided IT Architecture for the Information System in charge of performing large statistical analysis of big data managed using an Apache Spark architecture. Working together with the data science team, I managed to reduce the computational cost of nightly executions which take several hours of processing. Deeply study of model inference for a various set of modeling paradigms, deep study of neural networks design and neural networks learning processes, learning supervision or machine learning software models. As a result, many bottlenecks and risk areas present in the system execution where removed, the big process was sliced into smaller independent sub processes. This allowed us to parallelize the process into several pipes of data, to avoid system memory overflows, create sub process states which could be recovered and continued in case of crash, better monitor and supervise the learning process, and reduce the processing time. Skills: Customer Facing, Data Engineering, Big Data, System Engineering, High Throughput Pipelines, Machine Learning, Supervised and non-supervised learning, Clusterization, Feature Extraction, Classiﬁcation, Model Evaluation, Model Training, Model Re-training Python Multithreading Thread Safe Memory Celery Redis Mongodb Apache Spark AWS EC2 AWS S3 Scikit-learn SGD Classiﬁers Random Forest"
+      }
+    },
+    {
+      "job_title": {
+        "value": "Software Engineer",
+        "m": 0
+      },
+      "company": {
+        "value": "Ingravity Media(b2b)",
+        "m": 0
+      },
+      "location": {
+        "value": "Barcelona, Spain",
+        "m": 0
+      },
+      "start_date": {
+        "value": "09/2013",
+        "m": 0
+      },
+      "end_date": {
+        "value": "06/2016",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "Working in several projects as Software Engineer, among which a remarkable one is to provide WOO Sports with robust IT Architecture. The project involved in planning, development, scalability of the Information architecture. Now our system is providing service to 15K mobile applications for kite surfers, continuously growing. Complete architecture, project engineering and development of the Http Rest Service for the mobile application, complete design of the code life-cycle across the vary system environments. Completely built using Php. Scalability and Security driven development, code maintainability and microservice oriented scalability. Skills: Development Operations, Data Migrations, System Recovery, Distributed Systems, NoSQL, SQL, SOA, Software Engineering, Project Engineering, System Engineering, Distributed Logging, Logstash, Elasticsearch, High performance Systems, Fault tolerance, Autoscaling, CI/CD, Versioning Architecture, Web services, Rest services Gant Php Python Bash scripting Logstash Redis MongoDb Apache Nginx Oauth2 Request throttle React jQuery Amazon W eb Services AWS S3 AWS EC2 AWS Lambda AWS ELB VPC Rackspace"
+      }
+    },
+    {
+      "job_title": {
+        "value": "Software Engineer",
+        "m": 0
+      },
+      "company": {
+        "value": "Amadeus(full time)",
+        "m": 0
+      },
+      "location": {
+        "value": "Nice, France",
+        "m": 0
+      },
+      "start_date": {
+        "value": "09/2011",
+        "m": 0
+      },
+      "end_date": {
+        "value": "04/2012",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "Software engineering in one of the most complex and big IT System in the world. It's offering robust service to critical operational needs from Airlines all over the world. I got involved in the impressive ticketing infrastructure, being aware of very complex software development processes, exigent quality checks, a huge organizational structure. The policies of software using really strict deploying policies, advanced unit and integration testing systems, as it runs a really hard-to-reproduce environment. Worked in dense inter-team collaboration workflows, with long code integration processes. Amadeus is a huge Distributed System, compliant with several ISO Certiﬁcations, having wide complex node interactions, inﬁnite use cases, always up and running. Skills: Software Engineering, Auditing Software Development Systems, Service Oriented Architecture, Systems Engineering, Automated deployment C/C++ C++ STD Libraries Svn"
+      }
+    }
+  ],
+  "projects": [],
+  "education": [
+    {
+      "degree_program": {
+        "value": "Master's Degree Information and Communication Engineering",
+        "m": 0
+      },
+      "institution": {
+        "value": "Politecnico di Milano",
+        "m": 0
+      },
+      "institution_type": {
+        "value": "",
+        "m": 1
+      },
+      "start_date": {
+        "value": "2007",
+        "m": 0
+      },
+      "end_date": {
+        "value": "2010",
+        "m": 0
+      },
+      "location": {
+        "value": "Milan, Italy",
+        "m": 0
+      }
+    },
+    {
+      "degree_program": {
+        "value": "Master's Degree in Computer Science",
+        "m": 0
+      },
+      "institution": {
+        "value": "Universidad de Extremadura",
+        "m": 0
+      },
+      "institution_type": {
+        "value": "",
+        "m": 1
+      },
+      "start_date": {
+        "value": "2001",
+        "m": 0
+      },
+      "end_date": {
+        "value": "2010",
+        "m": 0
+      },
+      "location": {
+        "value": "Cáceres, Spain",
+        "m": 0
+      }
+    }
+  ],
+  "certifications": []
+}

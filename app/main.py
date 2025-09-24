@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.utils import get_openapi
 
 from app.database import init_database, start_cleanup_scheduler
-from app.api.routes import extract, classify, jobs, health
+from app.api.routes import extract, classify, jobs, health, ai_action
 from app.utils.prl_cleaner import start_prl_cleanup_scheduler
 
 logging.basicConfig(level=logging.INFO)
@@ -35,6 +35,7 @@ async def on_startup():
     logger.info("Database initialized and cleanup scheduler started")
 
 # Routers
+app.include_router(ai_action.router, prefix="/ai", tags=["ai-actions"]) 
 app.include_router(extract.router, prefix="/extract", tags=["extraction"])
 app.include_router(classify.router, prefix="/classify", tags=["classification"])
 app.include_router(jobs.router,     prefix="/jobs",     tags=["jobs"])
