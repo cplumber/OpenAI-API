@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-#API_BASE="http://localhost:8000"
-API_BASE="https://www.devfe.flexcoders.net:9443"
+API_BASE="http://localhost:8000"
+#API_BASE="https://www.devfe.flexcoders.net:9443"
 PDF_FILE="../../PDF-Tools/sample10.pdf"
 USER_ID="test_user_123"
 OPENAI_API_KEY=$OPENAI_API_KEY

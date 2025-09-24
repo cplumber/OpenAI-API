@@ -1,10 +1,6 @@
 """
-POST /ai/action endpoint.
-
-Mount in main.py like:
-    app.include_router(ai_action_router, prefix="/ai")
+POST /ai/action endpoint — validated against UI button matrix.
 """
-
 from fastapi import APIRouter, HTTPException, status, Form, UploadFile, File, Request
 from typing import Optional
 import uuid
@@ -14,7 +10,6 @@ import logging
 from app.utils.debug_recorder import DebugRequestRecorder
 from app.models.responses import JobResponse
 from app.models.requests import AIActionRequest
-from app.utils.job_manager import create_job
 from app.core.ai_action_handler import AIActionHandler
 from app.dependencies import validate_file
 
@@ -22,6 +17,18 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
+# Allowed actions per tab (Availability has no defaults)
+_ALLOWED_BY_TAB = {
+    "Contact": {"AI Suggestions", "Validate"},
+    "Soft Skills": {"AI Suggestions", "Validate", "Enhance"},
+    "Tech Skills": {"AI Suggestions", "Validate"},
+    "About": {"AI Suggestions", "Validate", "Enhance", "Shorten"},
+    "Experience": {"AI Suggestions", "Validate", "Enhance"},
+    "Projects": {"AI Suggestions", "Validate", "Enhance"},
+    "Education": {"AI Suggestions", "Validate"},
+    "Certifications": {"AI Suggestions", "Validate"},
+    "Availability": set(),
+}
 
 @router.post(
     "/action",
@@ -29,8 +36,8 @@ router = APIRouter()
     status_code=status.HTTP_202_ACCEPTED,
     summary="Queue an AI action job",
     description=(
-        "Submit an AI action (suggest/validate/enhance/shorten) for a given tab. "
-        "Always requires resume_json; PDF file is optional."
+        "Submit an AI action (AI Suggestions / Validate / Enhance / Shorten) for a given tab. "
+        "Resume JSON is required; PDF file is optional."
     ),
 )
 async def ai_action(
@@ -38,14 +45,14 @@ async def ai_action(
     user_id: str = Form(..., description="Internal user identifier"),
     openai_api_key: str = Form(..., description="OpenAI API key"),
     model: str = Form(..., description="LLM model to use, e.g. gpt-4o-mini"),
-    action_type: str = Form(..., description="AI action: suggest | validate | enhance | shorten"),
-    tab: str = Form(..., description="Target tab, e.g. skills, projects, education"),
-    resume_json: str = Form(..., description="Current resume JSON (after parsing and/or user edits)"),
+    action_type: str = Form(..., description="AI action: 'AI Suggestions' | 'Validate' | 'Enhance' | 'Shorten'"),
+    tab: str = Form(..., description="Target tab label exactly as in UI"),
+    resume_json: str = Form(..., description="Current resume JSON (string)"),
     file: Optional[UploadFile] = File(
         None, description="Optional PDF file; used if prompt references {{PDF_TEXT}}"
     ),
     prompt: Optional[str] = Form(
-        None, description="Optional custom prompt override"
+        None, description="Optional custom prompt override (verbatim)"
     ),
     max_output_tokens: Optional[int] = Form(
         None, description="Maximum number of output tokens"
@@ -67,9 +74,10 @@ async def ai_action(
         "model": model,
         "action_type": action_type,
         "tab": tab,
-        "resume_json_len": len(resume_json),
+        "resume_json_len": len(resume_json) if isinstance(resume_json, str) else None,
         "max_output_tokens": max_output_tokens,
         "temperature_zero": temperature_zero,
+        "custom_prompt": bool(prompt),
     })
     try:
         if file:
@@ -79,6 +87,14 @@ async def ai_action(
     # ---------------------
 
     try:
+        # Validate default (tab, action) if NO custom prompt
+        if not prompt:
+            allowed = _ALLOWED_BY_TAB.get(tab, None)
+            if allowed is None:
+                raise HTTPException(status_code=400, detail=f"Unknown tab: {tab}")
+            if action_type not in allowed:
+                raise HTTPException(status_code=400, detail=f"Unsupported action '{action_type}' for tab '{tab}'")
+
         pdf_content = None
         filename = None
         if file:
@@ -99,8 +115,8 @@ async def ai_action(
 
         handler = AIActionHandler()
         job_id = str(uuid.uuid4())
-        create_job(job_id, request_data.user_id, request_data.openai_api_key)
 
+        # NOTE: Let the handler own job-creation lifecycle (avoid duplicate create_job here)
         th = threading.Thread(
             name=f"ai-action-{job_id[:8]}",
             target=handler.process_action,
