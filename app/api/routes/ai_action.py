@@ -12,6 +12,7 @@ from app.models.responses import JobResponse
 from app.models.requests import AIActionRequest
 from app.core.ai_action_handler import AIActionHandler
 from app.dependencies import validate_file
+from app.utils.job_manager import create_job, update_job_status  # <-- added
 
 logger = logging.getLogger(__name__)
 
@@ -48,20 +49,12 @@ async def ai_action(
     action_type: str = Form(..., description="AI action: 'AI Suggestions' | 'Validate' | 'Enhance' | 'Shorten'"),
     tab: str = Form(..., description="Target tab label exactly as in UI"),
     resume_json: str = Form(..., description="Current resume JSON (string)"),
-    file: Optional[UploadFile] = File(
-        None, description="Optional PDF file; used if prompt references {{PDF_TEXT}}"
-    ),
-    prompt: Optional[str] = Form(
-        None, description="Optional custom prompt override (verbatim)"
-    ),
-    max_output_tokens: Optional[int] = Form(
-        None, description="Maximum number of output tokens"
-    ),
-    temperature_zero: bool = Form(
-        True, description="Force deterministic decoding by setting temperature=0"
-    ),
+    file: Optional[UploadFile] = File(None, description="Optional PDF file; used if prompt references {{PDF_TEXT}}"),
+    prompt: Optional[str] = Form(None, description="Optional custom prompt override (verbatim)"),
+    max_output_tokens: Optional[int] = Form(None, description="Maximum number of output tokens"),
+    temperature_zero: bool = Form(True, description="Force deterministic decoding by setting temperature=0"),
 ) -> JobResponse:
-    # --- Debug logging ---
+    # --- PRL meta ---
     rec = DebugRequestRecorder().start(
         route="/ai/action",
         method=request.method,
@@ -84,7 +77,7 @@ async def ai_action(
             rec.save_uploads([("file", file)])
     except Exception:
         pass
-    # ---------------------
+    # ----------------
 
     try:
         # Validate default (tab, action) if NO custom prompt
@@ -116,7 +109,11 @@ async def ai_action(
         handler = AIActionHandler()
         job_id = str(uuid.uuid4())
 
-        # NOTE: Let the handler own job-creation lifecycle (avoid duplicate create_job here)
+        # Route owns job-creation lifecycle (matches extract.py; prevents initial GET 404)
+        create_job(job_id, user_id, openai_api_key)
+        update_job_status(job_id, "queued", 0)
+
+        # Schedule background execution
         th = threading.Thread(
             name=f"ai-action-{job_id[:8]}",
             target=handler.process_action,

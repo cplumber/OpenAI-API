@@ -1,7 +1,7 @@
 """
 AI Action Logic (single action) — aligned with extract_single flow.
 
-- Keeps same lifecycle: create_job, rate-limit check, progress, model call, JSON extraction.
+- Keeps same lifecycle: update_job, rate-limit check, progress, model call, JSON extraction.
 - Preserves optional PDF support and placeholder substitution.
 - Default (no custom prompt): use focused (tab, action) templates and the SAME prompt builder as extraction.
 - Custom prompt: used verbatim; placeholders {{PDF_TEXT}} and {{USER_RESUME_JSON}} are replaced.

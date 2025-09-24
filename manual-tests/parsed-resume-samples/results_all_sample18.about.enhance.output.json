@@ -1,29 +1,66 @@
 {
-  "job_id": "62877691-e0b1-40ae-9bfc-df81bbf77735",
+  "job_id": "91e98d1c-fd4b-4505-af5f-74ee49d50169",
   "status": "completed",
   "result": {
     "about": {
-      "value": "Software architect with over 6 years of experience specializing in C++ (11-17), Linux, git, Docker, and CMake. Experienced in system and detailed design, software development, and ASPICE implementation for automotive clients including Daimler AG, Volkswagen AG, and Ceer Motors.",
-      "m": 0,
-      "suggestions": [],
+      "value": "Software architect with over 6 years of experience specializing in C++ (11-17), Linux, git, Docker, and CMake. Proven expertise in system and detailed design, software development, and ASPICE implementation for automotive clients including Daimler AG, Volkswagen AG, and Ceer Motors.",
+      "m": 1,
+      "suggestions": [
+        {
+          "value": "Software architect (6+ yrs) with expertise in C++, Linux, git, Docker, and CMake; led system design and ASPICE implementation for automotive projects at Luxoft and Global Logic.",
+          "confidence": 0.6,
+          "evidence": [
+            {
+              "span": "SOFTWARE ARCHITECT, LUXOFT, MAY 2024 – PRESENT, Hard Skills : C++ 17, python, Java, Swift, Bluetooth, git, Linux, CMake, Android, Soong, Docker, Multithreading, STL, plantuml, ASPICE"
+            },
+            {
+              "span": "SOFTWARE ARCHITECT, LUXOFT, AUGUST 2021 – NOVEMBER 2022, Hard Skills : C++ 14 -17, git, Linux, CMake, Yocto, Docker, SQLite, gRPC, Thrift, Boost.Asio, STL, plantuml, ASPICE"
+            },
+            {
+              "span": "Responsibilities: System design creation, Detailed design creation, SW development (features, debugging), Level 1 ASPICE: SWE.2 and SWE.3 implementation"
+            },
+            {
+              "span": "Customer: Daimler AG, Volkswagen AG, Ceer Motors"
+            }
+          ]
+        },
+        {
+          "value": "Experienced software architect and developer with 6+ years in automotive software, skilled in C++, Linux, git, Docker, and ASPICE; designed architectures for CarPlay, Bluetooth, and IVI systems.",
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "span": "Designed SW Architecture for CarPlay 2.0 Integration Framework"
+            },
+            {
+              "span": "Designed SW Architecture for Bluetooth Device Manager"
+            },
+            {
+              "span": "Hard Skills : C++ 17, python, Java, git, Linux, CMake, Docker, ASPICE"
+            },
+            {
+              "span": "Customer: Daimler AG, Ceer Motors"
+            }
+          ]
+        }
+      ],
       "evidence": [
         {
           "span": "SOFTWARE ARCHITECT, LUXOFT, MAY 2024 – PRESENT, Hard Skills : C++ 17, python, Java, Swift, Bluetooth, git, Linux, CMake, Android, Soong, Docker, Multithreading, STL, plantuml, ASPICE"
         },
         {
-          "span": "SOFTWARE ARCHITECT, LUXOFT, NOVEMBER 2022 – MAY 2024, Hard Skills : C++ 17, python, Java, git, r2, Linux, CMake, Android, Soong, Docker, Multithreading, STL, plantuml, ASPICE"
+          "span": "Responsibilities: System design creation, Detailed design creation, SW development (features, debugging), Level 1 ASPICE: SWE.2 and SWE.3 implementation"
         },
         {
-          "span": "SOFTWARE ARCHITECT, LUXOFT, AUGUST 2021 – NOVEMBER 2022, Hard Skills : C++ 14 -17, git, Linux, CMake, Yocto, Docker, SQLite, gRPC, Thrift, Boost.Asio, STL, plantuml, ASPICE"
+          "span": "Designed SW Architecture for CarPlay 2.0 Integration Framework"
         },
         {
           "span": "Customer: Daimler AG, Volkswagen AG, Ceer Motors"
         }
       ],
-      "confidence": 1.0
+      "confidence": 0.6
     }
   },
   "error_message": null,
-  "created_at": "2025-09-24 12:22:46",
-  "completed_at": "2025-09-24 12:22:52"
+  "created_at": "2025-09-24 14:52:43",
+  "completed_at": "2025-09-24 14:52:58"
 }
