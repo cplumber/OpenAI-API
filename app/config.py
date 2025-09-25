@@ -6,7 +6,7 @@ import os
 ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
 DATABASE_URL = os.getenv("DATABASE_URL", "resume_analyzer.db")
 
-MAX_FILE_SIZE =  100* 1024 * 1024  # 5MB
+MAX_FILE_SIZE =  5* 1024 * 1024  # 5MB
 
 MAX_JOBS_PER_API_KEY = 20
 MAX_JOBS_PER_USER = 1
@@ -36,8 +36,8 @@ DEBUG_REQUEST_LOG_DIR = "./prl"   # per-request logs directory
 DEBUG_REQUEST_LOG_REDACT_KEYS = ""  # comma-separated extra keys to redact (in addition to built-ins)
 
 # --- Cleanup policy for per-request logs ---
-PRL_MAX_BYTES = 100 * 1024 * 1024     # keep logs under 100 MB total
-PRL_CLEAN_INTERVAL_SEC = 3600         # run cleanup every hour
+PRL_MAX_BYTES = 50 * 1024 * 1024     # keep logs under 100 MB total
+PRL_CLEAN_INTERVAL_SEC = 60     # run cleanup every hour
 
 # ---------------- OpenAI limiting knobs ----------------
 # OpenAI RPM limit (per API key)

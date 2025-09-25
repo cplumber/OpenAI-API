@@ -3,7 +3,7 @@ SQLite Database Connection
 """
 import sqlite3
 from contextlib import contextmanager
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import threading
 import time  # <-- added
 
@@ -90,7 +90,7 @@ def cleanup_old_jobs():
     Retries up to 5 times with 5s sleep on lock/busy. Keeps lock windows tiny.
     Returns number of rows deleted in the last batch (0 if nothing to delete).
     """
-    cutoff = datetime.now() - timedelta(minutes=JOB_CLEANUP_MINUTES)
+    cutoff = int((datetime.now(timezone.utc) - timedelta(minutes=JOB_CLEANUP_MINUTES)).timestamp())
     attempts = 5
     batch_size = 500
 
@@ -99,7 +99,7 @@ def cleanup_old_jobs():
             with _cleanup_conn() as conn:
                 conn.execute("BEGIN")
                 rows = conn.execute(
-                    "SELECT job_id FROM jobs WHERE created_at < ? LIMIT ?",
+                    "SELECT job_id FROM jobs WHERE strftime('%s', created_at) < ? LIMIT ?",
                     (cutoff, batch_size),
                 ).fetchall()
                 if not rows:

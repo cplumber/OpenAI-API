@@ -1,0 +1,42 @@
+{{INCLUDE:common_static_prefix.txt}}
+
+### Output schema (must match exactly)
+{
+  "education": [
+    {
+      "degree_program": {"value": "", "m": 0},
+      "institution": {"value": "", "m": 0},
+      "institution_type": {"value": "", "m": 0},
+      "start_date": {"value": "", "m": 0},
+      "end_date": {"value": "", "m": 0},
+      "location": {"value": "", "m": 0}
+    }
+  ],
+  "certifications": [
+    {
+      "certification_name": {"value": "", "m": 0},
+      "issuing_organization": {"value": "", "m": 0},
+      "date_obtained": {"value": "", "m": 0},
+      "expiry_date": {"value": "", "m": 0},
+      "credential_id": {"value": "", "m": 0}
+    }
+  ]
+}
+
+### Education field rules
+- degree_program: copy program/degree title exactly as written (anchors: "Master's in Computer Science", "Bachelor of Engineering", "MBA" — not exhaustive).
+- institution: copy institution name exactly (anchors: "Kyiv Polytechnic Institute", "MIT", "University of Oxford" — not exhaustive).
+- institution_type: normalize to one of ["High School", "University/College", "Courses", "Training"]. If unclear, set m=1.
+- start_date / end_date: normalize to "MM/YYYY" or "YYYY". If only one date available, fill accordingly and set the other to m=1.
+- location: copy city/country exactly as written.
+
+### Certification field rules
+- certification_name: copy exactly as written (anchors: "Microsoft Azure Solutions Architect Expert", "AWS Certified Solutions Architect" — not exhaustive).
+- issuing_organization: copy issuer name exactly (anchors: "Microsoft", "Amazon Web Services", "Google Cloud" — not exhaustive).
+- date_obtained: normalize to "MM/YYYY" or "YYYY". If not available, set m=1.
+- expiry_date: normalize to "MM/YYYY" or "YYYY" if present; if not applicable, leave "" with m=1.
+- credential_id: copy credential ID if present. If optional and not given, set m=1.
+
+### Ordering
+- Education: reverse chronological order (most recent education first).
+- Certifications: reverse chronological order (most recent certification first).

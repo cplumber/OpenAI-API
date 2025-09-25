@@ -1,0 +1,42 @@
+{{INCLUDE:common_static_prefix.txt}}
+
+### Output schema (must match exactly)
+{
+  "soft_skills": [
+    {"value": "", "m": 0}
+  ],
+  "tech_skills": {
+    "top_skills": [
+      {"value": "", "m": 0, "years_experience": {"value": null, "m": 0}}
+    ],
+    "additional_skills": [
+      {"value": "", "m": 0}
+    ]
+  }
+}
+
+### Common rules
+- When an explicit **Soft Skills** section exists, extract soft_skills **only from that section** (bullets/inline lists), ignore Responsibilities/Achievements content; tokenize by commas/semicolons/pipes/bullets, trim whitespace and trailing qualifiers.
+- When an explicit **Hard/Tech/Skills/Tech Stack** section exists, extract tech_skills **only from those sections** (bullets/inline lists); ignore scattered mentions in Responsibilities/Achievements unless no skills section is present.
+- For tech_skills values taken from explicit sections, keep the base skill name (anchors: "C++", "Linux", "Docker" — not exhaustive); drop adjacent version/year notes from the value text; dedupe case-insensitively.
+- Ranking override:  
+  • Items sourced from explicit skills sections receive the highest priority.  
+  • Within each group, order skills by **recency of evidence**: skills appearing in the most recent positions in the resume (latest jobs/projects/education) must be listed first.  
+  • If recency is equal, then order by (1) author-listed order, then (2) evidence volume across the resume.  
+- Fallback only if no explicit skills section exists: apply the same recency-first ordering across the whole resume to populate soft_skills and tech_skills.
+- Group both soft_skills and tech_skills into logical categories (anchors: Programming Languages, Frameworks, Technologies, Tools — not exhaustive) while preserving the recency-first ranking inside each group. Use real world knowledge to assign correct group.
+
+### Soft skills rules
+- soft_skills: include all distinct human/behavioral attributes explicitly mentioned anywhere in the resume (anchors: "Leadership", "Communication", "Teamwork", "Problem solving" — not exhaustive).
+- Deduplicate; normalize to lowercase words with first letter uppercase.
+- Exclude any technical tools or programming languages.
+
+### Tech skills rules
+- top_skills: up to 5 most important technical skills, languages, or tools. Prefer those explicitly highlighted, listed in a "skills" section, or frequently repeated in the resume.
+  - years_experience: numeric or textual durations (anchors: "3 years", "since 2018" — not exhaustive). Normalize to integer if possible (e.g., "3 years" → 3). If unclear, set m=1 with suggestions or reason.
+- additional_skills: include all other distinct technical tools, programming languages, frameworks, software, platforms, databases, cloud services, and related technologies mentioned anywhere in the resume (anchors: Terraform, Ansible, Redis, Kafka — not exhaustive). 
+  - Do not invent or guess; only include items explicitly present in the text.
+- Deduplicate, normalize to consistent casing (anchors: "JavaScript" not "javascript" — not exhaustive).
+- Exclude certifications (those go into certifications section).
+
+- Limits: top_skills ≤5.

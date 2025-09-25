@@ -2,14 +2,20 @@
 
 # Configuration
 API_BASE="http://127.0.0.1:8000"
+# Default
 USER_ID="test_user_123"
+
+# Parse CLI args
+while [[ $# -gt 0 ]]; do case "$1" in --user-id) USER_ID="$2"; shift 2 ;; *) echo "Unknown parameter: $1"; exit 1 ;; esac; done
+
+
 OPENAI_API_KEY=$OPENAI_API_KEY   # must be exported in your shell
 MODEL="gpt-4.1-mini"
 API_KEY_HEADER="${API_KEY_HEADER:-X-API-Key: ${X_API_KEY_VALUE}}"
 
 PROMPT_FILE="../focused-prompts/about.description.txt"
-RESUME_JSON_FILE="parsed-resume-samples/results_all_sample18.json"
-PDF_FILE="resumes/sample18.pdf"
+RESUME_JSON_FILE="parsed-resume-samples/results_all_sample19.json"
+PDF_FILE="resumes/sample19.pdf"
 
 echo "=== AI About Enhance Test ==="
 

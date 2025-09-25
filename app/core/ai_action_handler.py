@@ -27,9 +27,6 @@ def _save_action_artifacts(
     pdf_text: str | None,
     resume_json_raw: str | None,
     final_prompt: str | None,
-    combined_len: int | None,
-    pdf_text_len: int | None,
-    resume_json_len: int | None,
 ) -> None:
     """
     Save AIAction artifacts under the handler's PRL folder.
@@ -136,7 +133,7 @@ class AIActionHandler:
             return
 
         rec = DebugRequestRecorder().start(
-            route="AIActionHandler.process_action",
+            route="ai_action_handler",
             method="background",
             headers={},
             query={},
@@ -178,16 +175,7 @@ class AIActionHandler:
                 prompt_text = build_prompt(document_text, {"prompt_type": request_data.tab, "prompt": focused_template})
                 filled_prompt = prompt_text.replace("{{USER_RESUME_JSON}}", resume_json_text)
 
-            # Call OpenAI
             
-            # PRL: save action artifacts right before model call
-            try:
-                combined_len = (len(pdf_text or "") + len(resume_json_text or ""))
-                pdf_text_len = len(pdf_text or "")
-                resume_json_len = len(resume_json_text or "")
-            except Exception:
-                combined_len = pdf_text_len = resume_json_len = None
-
             if rec.enabled and rec.dir:
                 _save_action_artifacts(
                     rec,
@@ -196,11 +184,9 @@ class AIActionHandler:
                     pdf_text=pdf_text,
                     resume_json_raw=resume_json_text,
                     final_prompt=filled_prompt,
-                    combined_len=combined_len,
-                    pdf_text_len=pdf_text_len,
-                    resume_json_len=resume_json_len,
                 )
-
+           # Call OpenAI
+ 
             response = call_openai_api(
                 api_key=request_data.openai_api_key,
                 model=request_data.model,

@@ -1,0 +1,32 @@
+{{INCLUDE:common_static_prefix.txt}}
+
+### Output schema (must match exactly)
+{
+  "projects": [
+    {
+      "project_title": {"value": "", "m": 0},
+      "project_type": {"value": "", "m": 0},
+      "project_role": {"value": "", "m": 0},
+      "start_date": {"value": "", "m": 0},
+      "end_date": {"value": "", "m": 0},
+      "description": {"value": "", "m": 0},
+      "technologies_used": [
+        {"value": "", "m": 0}
+      ],
+      "project_url": {"value": "", "m": 0}
+    }
+  ]
+}
+
+### Field-specific rules
+- project_title: copy exactly as written (anchors: "iSLOT Gaming Platform", "Payment Gateway API", "CRM Redesign" — not exhaustive).
+- project_type: normalize to one of ["Full-time", "Part-time", "Freelance", "Personal (Pet)"]. If unclear, set m=1.
+- project_role: normalize to one of ["Project Manager", "Team Leader", "Lead Developer", "Senior Developer", "Frontend Developer", "Backend Developer", "Full Stack Developer"] (anchors, not exhaustive). If role not clear, set m=1 with suggestions or reason.
+- start_date / end_date: normalize to "MM/YYYY". If only year given, output "YYYY". If still ongoing, set end_date="" and m=1 for end_date with suggestion or reason.
+- description: copy the full project description text, including responsibilities and achievements. Do not shorten or fabricate.
+- technologies_used: include all distinct technologies, frameworks, languages, platforms, or tools explicitly listed in relation to the project (anchors: "Azure", "Kubernetes", "React", "Node.js", "MongoDB", "Blockchain" — not exhaustive). Normalize casing and dedupe.
+- project_url: if a project-specific URL is present (http/https), copy exactly. If none, set m=1.
+
+### Ordering
+- Output projects in **reverse chronological order** (most recent project first).
+- Preserve resume order if dates overlap.
