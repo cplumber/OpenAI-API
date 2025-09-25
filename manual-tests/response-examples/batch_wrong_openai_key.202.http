@@ -1,9 +1,0 @@
-HTTP/2 202 
-alt-svc: h3=":9443"; ma=2592000
-content-type: application/json
-date: Tue, 23 Sep 2025 13:37:30 GMT
-server: uvicorn
-via: 1.1 Caddy
-content-length: 123
-
-{"job_id":"78dfe2a9-39c7-4e3d-9c25-923f424f0685","status":"queued","message":"Batch extraction job created with 5 prompts"}
