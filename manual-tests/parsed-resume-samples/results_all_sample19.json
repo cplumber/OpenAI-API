@@ -1,0 +1,640 @@
+{
+  "contact": {
+    "name": {
+      "value": "Мaksym Strielnikov",
+      "m": 0
+    },
+    "email": {
+      "value": "",
+      "m": 1
+    },
+    "phone": {
+      "value": "",
+      "m": 1
+    },
+    "location": {
+      "value": "Poland",
+      "m": 0
+    },
+    "linkedin_link": {
+      "value": "https://www.linkedin.com/in/maksymstrielnikov/",
+      "m": 0
+    },
+    "portfolio_link": [
+      {
+        "value": "https://github.com/maksymstrielnikov",
+        "m": 0
+      }
+    ],
+    "messaging": [
+      {
+        "platform": "Telegram",
+        "value": "",
+        "m": 1
+      }
+    ]
+  },
+  "soft_skills": [
+    {
+      "value": "Inventing engineering solutions",
+      "m": 0
+    },
+    {
+      "value": "Enjoying research",
+      "m": 0
+    },
+    {
+      "value": "Aspiring to be part of an innovative team",
+      "m": 0
+    }
+  ],
+  "tech_skills": {
+    "top_skills": [
+      {
+        "value": "Python",
+        "m": 0,
+        "years_experience": {
+          "value": null,
+          "m": 1
+        }
+      },
+      {
+        "value": "Kubernetes",
+        "m": 0,
+        "years_experience": {
+          "value": null,
+          "m": 1
+        }
+      },
+      {
+        "value": "Terraform",
+        "m": 0,
+        "years_experience": {
+          "value": null,
+          "m": 1
+        }
+      },
+      {
+        "value": "AWS",
+        "m": 0,
+        "years_experience": {
+          "value": null,
+          "m": 1
+        }
+      },
+      {
+        "value": "GCP",
+        "m": 0,
+        "years_experience": {
+          "value": null,
+          "m": 1
+        }
+      }
+    ],
+    "additional_skills": [
+      {
+        "value": "PySpark",
+        "m": 0
+      },
+      {
+        "value": "DBUtils",
+        "m": 0
+      },
+      {
+        "value": "GitLab API",
+        "m": 0
+      },
+      {
+        "value": "Pandas",
+        "m": 0
+      },
+      {
+        "value": "transformers",
+        "m": 0
+      },
+      {
+        "value": "Flask",
+        "m": 0
+      },
+      {
+        "value": "web3.py",
+        "m": 0
+      },
+      {
+        "value": "Lambda",
+        "m": 0
+      },
+      {
+        "value": "Go Lang",
+        "m": 0
+      },
+      {
+        "value": "Pulumi",
+        "m": 0
+      },
+      {
+        "value": "cryptography",
+        "m": 0
+      },
+      {
+        "value": "http",
+        "m": 0
+      },
+      {
+        "value": "Geth",
+        "m": 0
+      },
+      {
+        "value": "ERC20 tokens",
+        "m": 0
+      },
+      {
+        "value": "smartcontracts",
+        "m": 0
+      },
+      {
+        "value": "Azure Databricks",
+        "m": 0
+      },
+      {
+        "value": "AWS SageMaker",
+        "m": 0
+      },
+      {
+        "value": "Jupyter Notebooks",
+        "m": 0
+      },
+      {
+        "value": "Kubernetes API",
+        "m": 0
+      },
+      {
+        "value": "HashiCorp Vault",
+        "m": 0
+      },
+      {
+        "value": "PKI",
+        "m": 0
+      },
+      {
+        "value": "Cloudflare",
+        "m": 0
+      },
+      {
+        "value": "Kafka",
+        "m": 0
+      },
+      {
+        "value": "Confluent",
+        "m": 0
+      },
+      {
+        "value": "Minio",
+        "m": 0
+      },
+      {
+        "value": "MySQL",
+        "m": 0
+      },
+      {
+        "value": "PostgreSQL",
+        "m": 0
+      },
+      {
+        "value": "Redis",
+        "m": 0
+      },
+      {
+        "value": "MongoDB",
+        "m": 0
+      },
+      {
+        "value": "Cassandra",
+        "m": 0
+      }
+    ]
+  },
+  "about": {
+    "description": {
+      "value": "Software Engineer with expertise in Cloud Native stack, Data Science, ML, Cryptography, blockchain, AI, and hackathon participation.",
+      "m": 0
+    },
+    "languages": [
+      {
+        "language": {
+          "value": "Polish",
+          "m": 0
+        },
+        "level": {
+          "value": "C1",
+          "m": 0
+        }
+      },
+      {
+        "language": {
+          "value": "Ukrainian",
+          "m": 1
+        },
+        "level": {
+          "value": "",
+          "m": 1
+        }
+      }
+    ]
+  },
+  "experience": [
+    {
+      "job_title": {
+        "value": "Software Engineer",
+        "m": 0
+      },
+      "company": {
+        "value": "Capgemini Engineering",
+        "m": 0
+      },
+      "location": {
+        "value": "",
+        "m": 1
+      },
+      "start_date": {
+        "value": "06/2023",
+        "m": 0
+      },
+      "end_date": {
+        "value": "",
+        "m": 0
+      },
+      "current": {
+        "value": true,
+        "m": 0
+      },
+      "description": {
+        "value": "Outsource / outstaff\n• Implement steps for ML training using TensorFlow, PySpark, Pandas, transformers\n• Prepare data sets for learning process and verify its quality with statistical tests\n• Develop ML pipelines in Azure Databricks and AWS Sagemaker",
+        "m": 0
+      }
+    },
+    {
+      "job_title": {
+        "value": "Platform Developer",
+        "m": 0
+      },
+      "company": {
+        "value": "Self Employed",
+        "m": 0
+      },
+      "location": {
+        "value": "",
+        "m": 1
+      },
+      "start_date": {
+        "value": "12/2022",
+        "m": 0
+      },
+      "end_date": {
+        "value": "05/2023",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "Freelance / Contracts\n• Develop reusable infrastructure components on Go and CUE for KubeVela\n• Own and develop Software as a Service solution on Goto manage infrastructure and its integrations\n• Develop an internal framework for Go on top of Pulumi",
+        "m": 0
+      }
+    },
+    {
+      "job_title": {
+        "value": "Junior DevOps Engineer",
+        "m": 0
+      },
+      "company": {
+        "value": "Parimatch Tech",
+        "m": 0
+      },
+      "location": {
+        "value": "",
+        "m": 1
+      },
+      "start_date": {
+        "value": "05/2021",
+        "m": 0
+      },
+      "end_date": {
+        "value": "11/2022",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "• Develop tools for GitLab integration using Python\n• Develop an internal infrastructure platform to deploy environments by click using GitOps\n• Develop Confluent data streaming platform",
+        "m": 0
+      }
+    },
+    {
+      "job_title": {
+        "value": "Junior DevOps Engineer",
+        "m": 0
+      },
+      "company": {
+        "value": "Sigma Software Group",
+        "m": 0
+      },
+      "location": {
+        "value": "",
+        "m": 1
+      },
+      "start_date": {
+        "value": "01/2021",
+        "m": 0
+      },
+      "end_date": {
+        "value": "05/2021",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "• Migrate monolithic applications into containers and/or cloud\n• Bootstrap AWS infrastructure and CI/CD for projects using GitLab + Terraform\n• Automation of complex deployment scenarios",
+        "m": 0
+      }
+    },
+    {
+      "job_title": {
+        "value": "Linux System Administrator",
+        "m": 0
+      },
+      "company": {
+        "value": "GeeksForLess Inc.",
+        "m": 0
+      },
+      "location": {
+        "value": "",
+        "m": 1
+      },
+      "start_date": {
+        "value": "11/2019",
+        "m": 0
+      },
+      "end_date": {
+        "value": "01/2021",
+        "m": 0
+      },
+      "current": {
+        "value": false,
+        "m": 0
+      },
+      "description": {
+        "value": "• Developed a tool to analyse malicious mail content using Python\n• Improve internal utility for malware detection\n• Administration of Linux on-prem servers, F5 firewalls, optimise web-servers",
+        "m": 0
+      }
+    }
+  ],
+  "projects": [
+    {
+      "project_title": {
+        "value": "ETH days hackathon project",
+        "m": 0
+      },
+      "project_type": {
+        "value": "",
+        "m": 1
+      },
+      "project_role": {
+        "value": "",
+        "m": 1
+      },
+      "start_date": {
+        "value": "",
+        "m": 1
+      },
+      "end_date": {
+        "value": "",
+        "m": 1
+      },
+      "description": {
+        "value": "Automated matching of P2P orders using semantic search and automatic smart contract creation through bot",
+        "m": 0
+      },
+      "technologies_used": [
+        {
+          "value": "semantic search",
+          "m": 0
+        },
+        {
+          "value": "smart contracts",
+          "m": 0
+        },
+        {
+          "value": "blockchain",
+          "m": 0
+        }
+      ],
+      "project_url": {
+        "value": "",
+        "m": 1
+      }
+    },
+    {
+      "project_title": {
+        "value": "K8s custom operator PoC",
+        "m": 0
+      },
+      "project_type": {
+        "value": "",
+        "m": 1
+      },
+      "project_role": {
+        "value": "",
+        "m": 1
+      },
+      "start_date": {
+        "value": "",
+        "m": 1
+      },
+      "end_date": {
+        "value": "",
+        "m": 1
+      },
+      "description": {
+        "value": "Example of a custom K8s operator implementation using kubebuilder.",
+        "m": 0
+      },
+      "technologies_used": [
+        {
+          "value": "Kubernetes",
+          "m": 0
+        },
+        {
+          "value": "kubebuilder",
+          "m": 0
+        }
+      ],
+      "project_url": {
+        "value": "",
+        "m": 1
+      }
+    },
+    {
+      "project_title": {
+        "value": "TelemetryAgent",
+        "m": 0
+      },
+      "project_type": {
+        "value": "",
+        "m": 1
+      },
+      "project_role": {
+        "value": "",
+        "m": 1
+      },
+      "start_date": {
+        "value": "",
+        "m": 1
+      },
+      "end_date": {
+        "value": "",
+        "m": 1
+      },
+      "description": {
+        "value": "Telemetry agent for low resource server with TLS support.",
+        "m": 0
+      },
+      "technologies_used": [
+        {
+          "value": "TLS",
+          "m": 0
+        }
+      ],
+      "project_url": {
+        "value": "",
+        "m": 1
+      }
+    },
+    {
+      "project_title": {
+        "value": "ECC native signers",
+        "m": 0
+      },
+      "project_type": {
+        "value": "",
+        "m": 1
+      },
+      "project_role": {
+        "value": "",
+        "m": 1
+      },
+      "start_date": {
+        "value": "",
+        "m": 1
+      },
+      "end_date": {
+        "value": "",
+        "m": 1
+      },
+      "description": {
+        "value": "Implementation of ECC Schnorr digital signature using native Go lang libs.",
+        "m": 0
+      },
+      "technologies_used": [
+        {
+          "value": "ECC",
+          "m": 0
+        },
+        {
+          "value": "Go",
+          "m": 0
+        }
+      ],
+      "project_url": {
+        "value": "",
+        "m": 1
+      }
+    }
+  ],
+  "education": [
+    {
+      "degree_program": {
+        "value": "Applied Mathematics",
+        "m": 0
+      },
+      "institution": {
+        "value": "National Technical University of Ukraine 'Kyiv Polytechnic Institute'",
+        "m": 0
+      },
+      "institution_type": {
+        "value": "College",
+        "m": 1
+      },
+      "start_date": {
+        "value": "2023",
+        "m": 0
+      },
+      "end_date": {
+        "value": "2027",
+        "m": 0
+      },
+      "location": {
+        "value": "Poland",
+        "m": 0
+      }
+    },
+    {
+      "degree_program": {
+        "value": "Computer Science",
+        "m": 1
+      },
+      "institution": {
+        "value": "Admiral Makarov National University of Shipbuilding",
+        "m": 0
+      },
+      "institution_type": {
+        "value": "College",
+        "m": 1
+      },
+      "start_date": {
+        "value": "2021",
+        "m": 0
+      },
+      "end_date": {
+        "value": "2022",
+        "m": 0
+      },
+      "location": {
+        "value": "Ukraine",
+        "m": 0
+      }
+    },
+    {
+      "degree_program": {
+        "value": "Cybersecurity",
+        "m": 1
+      },
+      "institution": {
+        "value": "Admiral Makarov National University of Shipbuilding",
+        "m": 0
+      },
+      "institution_type": {
+        "value": "College",
+        "m": 1
+      },
+      "start_date": {
+        "value": "2017",
+        "m": 0
+      },
+      "end_date": {
+        "value": "2021",
+        "m": 0
+      },
+      "location": {
+        "value": "Ukraine",
+        "m": 0
+      }
+    }
+  ],
+  "certifications": []
+}
