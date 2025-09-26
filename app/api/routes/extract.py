@@ -66,8 +66,10 @@ async def extract_single(
         ...,
         description=(
             "Server-recognized prompt type key. "
-            "Determines which internal prompt template/logic is used. "
-            "Examples: 'contact_about', 'skills', 'projects', 'education'."
+            "Determines which internal prompt template/logic is used. \n"
+            " - 'contact' retrieves \"Contacts\" AND \"About\"\n"
+            " - 'education' retrieves \"Education\" AND \"Certifications\"\n\n"
+            "Allowed valuies: 'contact', 'about', 'skills', 'experience',  'projects', 'education', 'certifications'."
         ),
         examples=["skills"],
     ),
@@ -213,12 +215,18 @@ async def extract_batch(
         description=(
             "JSON array of prompt items. Each item must be an object with:\n"
             " - prompt_type (string, required): key for the extraction template.\n"
-            " - prompt (string, optional): custom override text.\n\n"
+            " - prompt (string, optional): custom override text.\n"
+            " - 'contact' retrieves \"Contacts\" AND \"About\"\n"
+            " - 'education' retrieves \"Education\" AND \"Certifications\"\n\n"
             "Example:\n"
             "[\n"
+            "  {\"prompt_type\":\"contact\"},\n"
             "  {\"prompt_type\":\"skills\"},\n"
-            "  {\"prompt_type\":\"projects\", \"prompt\":\"Extract recent projects with roles\"}\n"
+            "  {\"prompt_type\":\"experience\"},\n"
+            "  {\"prompt_type\":\"projects\"},\n"
+            "  {\"prompt_type\":\"education\"}\n"
             "]"
+             
         ),
     ),
     max_output_tokens: Optional[int] = Form(
